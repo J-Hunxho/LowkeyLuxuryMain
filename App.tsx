@@ -4,6 +4,7 @@ import ReviewCarousel from './components/ReviewCarousel';
 import ChatInterface from './components/ChatInterface';
 import ServiceBooking from './components/ServiceBooking';
 import AuthModal from './components/AuthModal';
+import BrandLogo from './components/BrandLogo';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 
 // Navigation Component to access Auth Context
@@ -13,19 +14,11 @@ const NavBar: React.FC<{ onAuthClick: () => void }> = ({ onAuthClick }) => {
   return (
     <nav className="fixed w-full z-50 top-0 left-0 bg-obsidian/90 backdrop-blur-md border-b border-gold-900/50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-        <div className="flex items-center">
-          <img 
-            src="./logo.png" 
-            alt="Lowkey Luxury" 
-            className="h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]"
-            onError={(e) => {
-              // Fallback if image fails to load
-              e.currentTarget.style.display = 'none';
-              const nextEl = e.currentTarget.nextElementSibling;
-              if (nextEl) (nextEl as HTMLElement).style.display = 'block';
-            }}
-          />
-          <div className="hidden font-serif text-2xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-600 font-bold">
+        <div className="flex items-center gap-3">
+          <div className="drop-shadow-[0_0_14px_rgba(212,175,55,0.35)]">
+            <BrandLogo className="h-12 w-12 md:h-14 md:w-14" />
+          </div>
+          <div className="font-serif text-lg md:text-xl tracking-[0.22em] text-transparent bg-clip-text bg-gradient-to-r from-gold-200 to-gold-600 font-bold">
             LOWKEY LUXURY
           </div>
         </div>
