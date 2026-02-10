@@ -52,7 +52,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
         <div className="flex justify-center mb-6">
           <img 
-            src="./logo.png" 
+            src="/brand-logo.png" 
             alt="Lowkey Luxury" 
             className="h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.2)]"
           />

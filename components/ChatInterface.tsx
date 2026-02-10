@@ -13,17 +13,20 @@ const ChatInterface: React.FC = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [status, setStatus] = useState<LoadingState>(LoadingState.IDLE);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   // Initialize chat session once
   const chatSession: GeminiChatSession | null = useMemo(() => createChatSession(), []);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollMessagesToBottom = () => {
+    const container = messagesContainerRef.current;
+    if (!container) return;
+
+    container.scrollTop = container.scrollHeight;
   };
 
   useEffect(() => {
-    scrollToBottom();
+    scrollMessagesToBottom();
   }, [messages, status]);
 
   const handleSend = async () => {
@@ -73,7 +76,7 @@ const ChatInterface: React.FC = () => {
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-6 space-y-6">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-6">
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -103,7 +106,6 @@ const ChatInterface: React.FC = () => {
              </div>
           </div>
         )}
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Input Area */}
