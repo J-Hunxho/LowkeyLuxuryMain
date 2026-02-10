@@ -28,7 +28,7 @@ This repository is now configured to deploy cleanly on **Railway** with minimal 
 5. Deploy.
 
 Railway will use:
-- `npm ci && npm run build` for build
+- `npm install --include=dev && npm run build` for build
 - `npm run start` for runtime
 
 (from `railway.toml`).
@@ -36,7 +36,7 @@ Railway will use:
 ### Option B — Manual Railway service settings
 
 If you prefer to set commands in the Railway dashboard:
-- **Install Command:** `npm ci`
+- **Install Command:** `npm install --include=dev`
 - **Build Command:** `npm run build`
 - **Start Command:** `npm run start`
 
