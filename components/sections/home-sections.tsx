@@ -19,6 +19,11 @@ const outcomes = [
   'Payment and delivery systems that feel invisible to the client and obvious to the operator.',
 ];
 
+/**
+ * Render the homepage's multi-section layout: hero, positioning, offerings, process, outcomes, and a final call-to-action with animated reveal effects.
+ *
+ * @returns A React fragment containing five stacked sections: a hero panel, a positioning panel (with links to /contact and /systems), an offerings grid, a "how it works" steps grid, an outcomes panel, and a contact call-to-action. Repeated cards are produced from internal arrays and revealed with staggered delays.
+ */
 export function HomeSections() {
   return (
     <>

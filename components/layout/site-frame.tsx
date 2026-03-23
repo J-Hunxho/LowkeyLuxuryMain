@@ -14,6 +14,16 @@ const navItems = [
   { href: '/contact', label: 'Apply' },
 ];
 
+/**
+ * Layout component that wraps page content with a header, animated navigation, and footer.
+ *
+ * Renders a sticky header with brand and responsive navigation (desktop links and an animated mobile menu),
+ * mounts an animated main area keyed by the current route for page transitions, locks document body scroll
+ * while the mobile menu is open, and closes the mobile menu on route changes.
+ *
+ * @param children - The page content to render inside the animated main area
+ * @returns The site frame element containing the header, animated main content, and footer
+ */
 export function SiteFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description: 'Luxury business infrastructure, operator-grade systems, and revenue architecture.',
 };
 
+/**
+ * Provides the application's root HTML structure and global layout wrapper.
+ *
+ * @param children - Page content to render inside the layout
+ * @returns The root <html lang="en"> element containing a <body> with global classes and a SiteFrame that wraps `children`
+ */
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">

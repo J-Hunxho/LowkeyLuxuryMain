@@ -1,55 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  color-scheme: dark;
-  --background: #0a0a0a;
-  --foreground: #f5f1e8;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background:
-    radial-gradient(circle at top, rgba(212, 175, 55, 0.08), transparent 28%),
-    linear-gradient(180deg, #080808 0%, #0b0b0b 45%, #090909 100%);
-  color: var(--foreground);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-::selection {
-  background: rgba(212, 175, 55, 0.85);
-  color: #050505;
-}
-
+:root { color-scheme: dark; --background:#0a0a0a; --foreground:#f5f1e8; }
+html { scroll-behavior: smooth; }
+body { margin:0; background: radial-gradient(circle at top, rgba(212,175,55,0.08), transparent 28%), linear-gradient(180deg, #080808 0%, #0b0b0b 45%, #090909 100%); color:var(--foreground); }
+* { box-sizing:border-box; }
+::selection { background: rgba(212,175,55,0.85); color:#050505; }
 @layer components {
-  .shell {
-    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
-  }
-
-  .eyebrow {
-    @apply text-[0.68rem] uppercase tracking-luxe text-gold-300/80;
-  }
-
-  .panel {
-    @apply rounded-[2rem] border border-gold-400/10 bg-white/[0.03] shadow-halo backdrop-blur-xl;
-  }
-
-  .link-hover {
-    @apply transition duration-300 hover:text-gold-200;
-  }
+  .shell { @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12; }
+  .eyebrow { @apply text-[0.7rem] uppercase tracking-luxe text-gold-300/80; }
+  .panel { @apply rounded-[2rem] border border-gold-400/10 bg-white/[0.03] backdrop-blur-xl shadow-halo; }
+  .link-hover { @apply transition duration-300 hover:text-gold-200; }
 }
