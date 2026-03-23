@@ -1,28 +1,30 @@
 {
   "name": "lowkey-luxury",
   "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "engines": {
-    "node": ">=20.0.0"
-  },
+  "version": "2.0.0",
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 5173",
-    "build": "vite build",
-    "start": "serve -s dist -l ${PORT:-4173}",
-    "preview": "vite preview --host 0.0.0.0 --port 4173"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "serve": "^14.2.4"
+    "framer-motion": "^12.6.2",
+    "next": "14.2.25",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "@vitejs/plugin-react": "^4.3.4",
-    "typescript": "^5.8.2",
-    "vite": "^5.4.14"
+    "@types/node": "22.14.0",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
