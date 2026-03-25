@@ -14,16 +14,6 @@ const navItems = [
   { href: '/contact', label: 'Apply' },
 ];
 
-/**
- * Layout component that wraps page content with a header, animated navigation, and footer.
- *
- * Renders a sticky header with brand and responsive navigation (desktop links and an animated mobile menu),
- * mounts an animated main area keyed by the current route for page transitions, locks document body scroll
- * while the mobile menu is open, and closes the mobile menu on route changes.
- *
- * @param children - The page content to render inside the animated main area
- * @returns The site frame element containing the header, animated main content, and footer
- */
 export function SiteFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,9 +50,7 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
 
             <div className="min-w-0">
               <p className="eyebrow truncate">Lowkey Luxury</p>
-              <p className="truncate text-xs text-white/60 transition group-hover:text-white/80 sm:text-sm">
-                Infrastructure over effort
-              </p>
+              <p className="truncate text-xs text-white/60 transition group-hover:text-white/80 sm:text-sm">Infrastructure over effort</p>
             </div>
           </Link>
 
@@ -153,17 +141,22 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-white/5 py-10">
         <div className="shell flex flex-col gap-4 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
           <p>Built for operators who value permanence.</p>
-          <div className="flex flex-wrap gap-6">
-            <Link href="/services" className="link-hover">
-              Capabilities
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <Link href="/privacy-policy" className="link-hover">
+              Privacy Policy
             </Link>
-            <Link href="/systems" className="link-hover">
-              Stacks
+            <span className="text-white/25">|</span>
+            <Link href="/terms" className="link-hover">
+              Terms
             </Link>
+            <span className="text-white/25">|</span>
             <Link href="/contact" className="link-hover">
-              Apply
+              Contact
             </Link>
           </div>
+          <a href="mailto:contact@lowkey.luxury" className="link-hover text-white/55">
+            contact@lowkey.luxury
+          </a>
         </div>
       </footer>
     </div>
