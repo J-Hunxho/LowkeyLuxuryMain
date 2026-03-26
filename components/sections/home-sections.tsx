@@ -122,9 +122,17 @@ export function HomeSections() {
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/58 sm:mt-6 sm:text-base">
             If the ambition is serious, the infrastructure should be too.
           </p>
-          <Link href="/contact" className="mt-8 inline-flex rounded-full bg-gold-400 px-7 py-3 text-sm font-medium text-black transition hover:bg-gold-300 sm:mt-10">
-            Start the application
-          </Link>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:mt-10">
+            <Link href="/contact" className="inline-flex rounded-full bg-gold-400 px-7 py-3 text-sm font-medium text-black transition hover:bg-gold-300">
+              Start the application
+            </Link>
+            <Link href="/miniapp" className="inline-flex rounded-full border border-gold-400/35 px-7 py-3 text-sm font-medium text-gold-100 transition hover:border-gold-300/60 hover:bg-gold-300/10">
+              Open Mini App
+            </Link>
+            <Link href="https://t.me/Lowkeyluxurybot" className="inline-flex rounded-full border border-white/20 px-7 py-3 text-sm font-medium text-white/80 transition hover:border-white/40 hover:text-white">
+              Chat on Telegram
+            </Link>
+          </div>
         </Reveal>
       </section>
     </>
