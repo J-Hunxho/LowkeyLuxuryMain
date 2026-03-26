@@ -3,6 +3,19 @@ import { config } from '@/lib/config';
 
 const apiBase = 'https://api.stripe.com/v1';
 
+/**
+ * Create a Stripe Checkout Session for a single unit of the specified price.
+ *
+ * @param input - Configuration for the checkout session:
+ *   - `priceId`: The Stripe Price ID to charge.
+ *   - `successUrl`: URL to redirect to after successful payment.
+ *   - `cancelUrl`: URL to redirect to if the customer cancels.
+ *   - `productId`: Application product identifier stored in session metadata.
+ *   - `telegramUserId` (optional): Telegram user ID to include in session metadata.
+ * @returns The created Checkout Session object with its Stripe `id` and redirect `url` (or `null`).
+ * @throws Error if `STRIPE_SECRET_KEY` is not configured.
+ * @throws Error if the Stripe API responds with a non-2xx status (`Stripe API error: <status>`).
+ */
 export async function createCheckoutSession(input: {
   priceId: string;
   successUrl: string;
@@ -42,6 +55,15 @@ export async function createCheckoutSession(input: {
   return data;
 }
 
+/**
+ * Validates a Stripe webhook signature header against the configured webhook secret.
+ *
+ * Returns `false` if the webhook secret is not configured or the signature header is missing required parts.
+ *
+ * @param payload - The raw request body (exact string used to compute the signature)
+ * @param signatureHeader - The value of the `Stripe-Signature` header from the webhook request
+ * @returns `true` if any `v1=` signature in the header matches the expected HMAC-SHA256 of `<timestamp>.<payload>` using the configured webhook secret, `false` otherwise
+ */
 export function verifyStripeSignature(payload: string, signatureHeader: string): boolean {
   if (!config.stripeWebhookSecret) return false;
 

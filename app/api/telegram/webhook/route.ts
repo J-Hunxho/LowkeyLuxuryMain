@@ -16,6 +16,11 @@ type TelegramUpdate = {
   };
 };
 
+/**
+ * Registers the Telegram webhook URL derived from the configured application URL.
+ *
+ * @returns A JSON response with `{ ok: true, webhookUrl }` on success; if `config.appUrl` is missing returns a 500 JSON error `{ error: 'APP_URL is not configured' }`.
+ */
 export async function GET() {
   if (!config.appUrl) {
     return NextResponse.json({ error: 'APP_URL is not configured' }, { status: 500 });
@@ -26,6 +31,15 @@ export async function GET() {
   return NextResponse.json({ ok: true, webhookUrl });
 }
 
+/**
+ * Handle Telegram webhook POST requests by validating the secret and processing incoming updates.
+ *
+ * If the `x-telegram-bot-api-secret-token` header is missing or does not match configuration, the request is rejected.
+ * For updates that include a `message`, the sender's profile is created or updated with the latest metadata and last-seen timestamp.
+ * If the message text starts with `/start`, a welcome message containing a link to the app is sent to the chat.
+ *
+ * @returns `401` JSON `{ error: 'Unauthorized' }` when the webhook secret is missing or invalid; otherwise JSON `{ ok: true }`.
+ */
 export async function POST(request: NextRequest) {
   const secret = request.headers.get('x-telegram-bot-api-secret-token');
   if (!secret || secret !== config.telegramWebhookSecretToken) {

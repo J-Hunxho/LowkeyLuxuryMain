@@ -20,6 +20,14 @@ type StripeEvent = {
   };
 };
 
+/**
+ * Handle Stripe webhook POSTs by verifying the signature, persisting completed checkout session orders, and notifying customers via Telegram.
+ *
+ * Verifies the `stripe-signature` header against the raw request body, parses a Stripe event, and on `checkout.session.completed` inserts an order record (mapping missing fields to sensible defaults/null). If a numeric Telegram user ID is present in session metadata, sends a confirmation message. On verification or configuration failures returns a JSON error response.
+ *
+ * @param request - Incoming NextRequest containing the raw webhook payload and `stripe-signature` header
+ * @returns A NextResponse with `{ received: true }` when the event is handled; on failure a JSON error object with an appropriate HTTP status code
+ */
 export async function POST(request: NextRequest) {
   if (!config.stripeWebhookSecret) {
     return NextResponse.json({ error: 'Stripe webhook secret is missing' }, { status: 500 });

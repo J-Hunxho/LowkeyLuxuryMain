@@ -6,6 +6,15 @@ import type { Product } from '@/lib/types';
 
 type Status = 'idle' | 'loading' | 'error';
 
+/**
+ * Render a client-side mini storefront that lists products and initiates Stripe checkout.
+ *
+ * Fetches product data when mounted and displays loading or error states. Shows payment
+ * outcome messages based on the URL `status` query parameter and redirects the browser
+ * to the Stripe checkout URL returned from the session-creation API when available.
+ *
+ * @returns The component's rendered JSX for the mini storefront.
+ */
 export function MiniAppStorefront() {
   const [products, setProducts] = useState<Product[]>([]);
   const [status, setStatus] = useState<Status>('loading');

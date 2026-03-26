@@ -20,9 +20,9 @@ const outcomes = [
 ];
 
 /**
- * Render the homepage's multi-section layout: hero, positioning, offerings, process, outcomes, and a final call-to-action with animated reveal effects.
+ * Renders the homepage's multi-section layout with animated reveal effects.
  *
- * @returns A React fragment containing five stacked sections: a hero panel, a positioning panel (with links to /contact and /systems), an offerings grid, a "how it works" steps grid, an outcomes panel, and a contact call-to-action. Repeated cards are produced from internal arrays and revealed with staggered delays.
+ * @returns A React fragment containing five stacked sections: a hero panel; a positioning panel (includes links to `/contact` and `/systems`); an offerings grid; a "how it works" steps grid; a case-level outcomes panel; and a final call-to-action with multiple links.
  */
 export function HomeSections() {
   return (
