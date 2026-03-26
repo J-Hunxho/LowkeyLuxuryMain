@@ -43,6 +43,11 @@ body {
 }
 
 @layer components {
+  .content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 1000px;
+  }
+
   .shell {
     @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
   }

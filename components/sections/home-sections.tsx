@@ -27,7 +27,7 @@ const outcomes = [
 export function HomeSections() {
   return (
     <>
-      <section className="shell grid min-h-[calc(100vh-5rem)] items-end gap-10 py-16 sm:gap-12 sm:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:py-32">
+      <section className="shell content-auto grid min-h-[calc(100vh-5rem)] items-end gap-10 py-16 sm:gap-12 sm:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:py-32">
         <Reveal>
           <div className="max-w-4xl">
             <p className="eyebrow mb-4 sm:mb-6">Lowkey luxury / business infrastructure</p>
@@ -57,7 +57,7 @@ export function HomeSections() {
         </Reveal>
       </section>
 
-      <section className="shell py-14 sm:py-20">
+      <section className="shell content-auto py-14 sm:py-20">
         <Reveal className="mb-10 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end lg:justify-between">
           <div>
             <p className="eyebrow mb-3">What we build</p>
@@ -79,7 +79,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="shell py-14 sm:py-20">
+      <section className="shell content-auto py-14 sm:py-20">
         <Reveal className="mb-10">
           <p className="eyebrow mb-3">How it works</p>
           <h2 className="font-serif text-3xl sm:text-5xl">A clean path from complexity to control.</h2>
@@ -98,7 +98,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="shell py-14 sm:py-20">
+      <section className="shell content-auto py-14 sm:py-20">
         <div className="panel grid gap-8 p-6 sm:gap-10 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-12">
           <Reveal>
             <p className="eyebrow mb-3">Case-level outcomes</p>
@@ -115,7 +115,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="shell py-16 sm:py-24">
+      <section className="shell content-auto py-16 sm:py-24">
         <Reveal className="rounded-[2rem] border border-gold-400/10 bg-gradient-to-br from-white/[0.05] to-gold-400/[0.04] px-6 py-12 text-center sm:rounded-[2.5rem] sm:px-8 sm:py-14 lg:px-16">
           <p className="eyebrow mb-3">Ready when the business is.</p>
           <h2 className="font-serif text-3xl sm:text-5xl">Built for companies that no longer tolerate improvisation.</h2>

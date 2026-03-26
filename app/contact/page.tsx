@@ -1,4 +1,10 @@
 import { Reveal } from '@/components/ui/animated';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact | Lowkey Luxury',
+  description: 'Contact Lowkey Luxury for infrastructure, automation, and Stripe-integrated systems.',
+};
 
 export default function ContactPage() {
   return (
