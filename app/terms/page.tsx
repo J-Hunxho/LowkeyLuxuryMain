@@ -1,4 +1,10 @@
 import { Reveal } from '@/components/ui/animated';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms | Lowkey Luxury',
+  description: 'Terms governing Lowkey Luxury services, subscriptions, and platform usage.',
+};
 
 const terms = [
   'All services, subscriptions, and deliverables are provided subject to written scope and acceptance terms.',

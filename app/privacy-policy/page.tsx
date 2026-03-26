@@ -1,4 +1,10 @@
 import { Reveal } from '@/components/ui/animated';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Lowkey Luxury',
+  description: 'Privacy Policy for Lowkey Luxury, including Stripe payment processing and contact details.',
+};
 
 const policySections = [
   {
@@ -92,7 +98,8 @@ export default function PrivacyPolicyPage() {
         <h1 className="font-serif text-4xl sm:text-6xl">Privacy Policy</h1>
         <p className="mt-6 text-sm leading-7 text-white/60 sm:text-base">Effective Date: March 25, 2026</p>
         <p className="mt-4 text-sm leading-7 text-white/60 sm:text-base">
-          Lowkey Luxury (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy and handling your data with discretion and care.
+          Lowkey Luxury (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy and handling your
+          data with discretion and care.
         </p>
       </Reveal>
 
