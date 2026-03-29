@@ -129,7 +129,7 @@ describe('.env.example', () => {
       if (!trimmed || trimmed.startsWith('#')) continue;
       // KEY = VALUE (with spaces around =) is technically valid in some shells
       // but breaks Vite's env loading; the template must use KEY=VALUE strictly.
-      expect(trimmed).not.toMatch(/\s=\s/);
+      expect(trimmed).not.toMatch(/\s=|=\s/);
     }
   });
 });
