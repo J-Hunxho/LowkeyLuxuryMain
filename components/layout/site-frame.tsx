@@ -8,10 +8,17 @@ import { useEffect, useState } from 'react';
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
+  { href: '/services', label: 'Engagements' },
   { href: '/systems', label: 'Systems' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'Founder' },
   { href: '/contact', label: 'Apply' },
+];
+
+const legalItems = [
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/terms', label: 'Terms of Service' },
+  { href: '/refund-policy', label: 'Refund Policy' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export function SiteFrame({ children }: { children: React.ReactNode }) {
@@ -34,7 +41,7 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-obsidian text-white">
       <div className="pointer-events-none fixed inset-0 bg-hero-radial opacity-90" />
 
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/50 backdrop-blur-2xl">
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/55 backdrop-blur-2xl">
         <div className="shell flex h-20 items-center justify-between gap-4 sm:h-24 sm:gap-6">
           <Link href="/" className="group flex min-w-0 items-center gap-3 sm:gap-4">
             <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-gold-400/30 shadow-glow sm:h-14 sm:w-14">
@@ -50,7 +57,7 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
 
             <div className="min-w-0">
               <p className="eyebrow truncate">Lowkey Luxury</p>
-              <p className="truncate text-xs text-white/60 transition group-hover:text-white/80 sm:text-sm">Infrastructure over effort</p>
+              <p className="truncate text-xs text-white/60 transition group-hover:text-white/80 sm:text-sm">Sleep Rich Infrastructure</p>
             </div>
           </Link>
 
@@ -139,20 +146,20 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
       </AnimatePresence>
 
       <footer className="border-t border-white/5 py-10">
-        <div className="shell flex flex-col gap-4 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
-          <p>Built for operators who value permanence.</p>
+        <div className="shell grid gap-5 text-sm text-white/45 lg:grid-cols-[1.1fr_1fr_auto] lg:items-center">
+          <div>
+            <p className="text-white/72">Lowkey Luxury LLC · U.S.-based infrastructure and automation studio.</p>
+            <p className="mt-2 text-xs text-white/45">Founder: Jacob Young · Business model: consulting, implementation, and managed optimization retainers.</p>
+          </div>
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-            <Link href="/privacy-policy" className="link-hover">
-              Privacy Policy
-            </Link>
-            <span className="text-white/25">|</span>
-            <Link href="/terms" className="link-hover">
-              Terms
-            </Link>
-            <span className="text-white/25">|</span>
-            <Link href="/contact" className="link-hover">
-              Contact
-            </Link>
+            {legalItems.map((item, index) => (
+              <div key={item.href} className="flex items-center gap-2 sm:gap-3">
+                <Link href={item.href} className="link-hover">
+                  {item.label}
+                </Link>
+                {index !== legalItems.length - 1 ? <span className="text-white/20">|</span> : null}
+              </div>
+            ))}
           </div>
           <a href="mailto:contact@lowkey.luxury" className="link-hover text-white/55">
             contact@lowkey.luxury
