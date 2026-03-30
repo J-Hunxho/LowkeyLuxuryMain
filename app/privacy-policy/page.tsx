@@ -3,90 +3,49 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Lowkey Luxury',
-  description: 'Privacy Policy for Lowkey Luxury, including Stripe payment processing and contact details.',
+  description: 'Privacy Policy for Lowkey Luxury and Stripe-enabled payment processing.',
 };
 
 const policySections = [
   {
     title: '1. Information We Collect',
     content: [
-      'We collect information you provide directly to us, including your name, email address, company details, project requirements, and any other information submitted through our forms or communications.',
-      'We also collect limited technical information automatically, such as IP address, browser type, pages visited, referral source, and device information, to improve platform reliability, security, and performance.',
-      'When purchases or subscriptions are made, payment information is processed by Stripe. We do not store full card numbers or sensitive payment credentials on our servers.',
+      'We collect information you submit directly, such as name, email, business details, project scope, and communication history.',
+      'We may collect technical usage data (IP address, browser/device details, and navigation events) for analytics, performance, and security monitoring.',
+      'Payments are processed by Stripe; we do not store full card numbers or payment credentials on our servers.',
     ],
   },
   {
-    title: '2. How We Use Your Information',
+    title: '2. How We Use Information',
     content: [
-      'We use your information to deliver services, manage client relationships, process payments, provide support, communicate updates, and improve our systems.',
-      'We may use data for analytics, fraud prevention, legal compliance, and protection of our rights, users, and business operations.',
-      'We do not sell your personal information.',
+      'To evaluate applications, deliver services, issue invoices, process payments, and provide support.',
+      'To maintain platform reliability, detect fraud, satisfy legal obligations, and improve client experience.',
     ],
   },
   {
-    title: '3. Payments and Stripe',
+    title: '3. Data Sharing',
     content: [
-      'All payment transactions are handled by Stripe as our payment processor and financial infrastructure partner.',
-      "Stripe may collect and process payment-related personal data subject to Stripe's own privacy practices and legal obligations.",
-      'By completing a payment through our platform, you acknowledge and agree that payment processing is governed by Stripe\'s terms and privacy policy in addition to ours.',
+      'We share data only with service providers essential to operations (hosting, communications, analytics, and payment providers).',
+      'We may disclose data when legally required or necessary to protect rights, security, and operational integrity.',
     ],
   },
   {
-    title: '4. Legal Bases for Processing',
+    title: '4. Data Retention and Security',
     content: [
-      'We process personal data where necessary to perform a contract, pursue legitimate interests, comply with legal obligations, and where required, based on your consent.',
+      'Data is retained only as long as needed for contractual, legal, accounting, and security purposes.',
+      'We use reasonable technical and organizational safeguards, but no method of data transmission or storage is absolutely secure.',
     ],
   },
   {
-    title: '5. Data Sharing',
+    title: '5. Your Rights',
     content: [
-      'We share information only with service providers and partners necessary to operate our business, such as hosting providers, analytics tools, communications infrastructure, and payment processors.',
-      'We may disclose information when required by law, legal process, or to protect security, rights, and operational integrity.',
+      'Depending on your location, you may request access, correction, deletion, or restriction of personal data processing.',
+      'Requests can be sent to contact@lowkey.luxury.',
     ],
   },
   {
-    title: '6. Data Retention',
-    content: [
-      'We retain personal data only as long as reasonably necessary for the purposes described in this policy, including contractual, legal, accounting, and security requirements.',
-    ],
-  },
-  {
-    title: '7. Security',
-    content: [
-      'We apply appropriate technical and organizational safeguards to protect personal information against unauthorized access, alteration, disclosure, or destruction.',
-      'No method of transmission or storage is completely secure. We therefore cannot guarantee absolute security.',
-    ],
-  },
-  {
-    title: '8. Your Rights',
-    content: [
-      'Depending on your jurisdiction, you may have rights to access, correct, delete, restrict, or object to processing of your personal information, and to request data portability.',
-      'To exercise applicable rights, contact us at contact@lowkey.luxury.',
-    ],
-  },
-  {
-    title: '9. Third-Party Services and Links',
-    content: [
-      'Our website may contain links to third-party sites or services. We are not responsible for the privacy practices of those external services.',
-    ],
-  },
-  {
-    title: "10. Children's Privacy",
-    content: [
-      'Our services are not directed to children under 13, and we do not knowingly collect personal data from children under 13.',
-    ],
-  },
-  {
-    title: '11. Changes to This Privacy Policy',
-    content: [
-      'We may update this Privacy Policy from time to time. Updated versions will be posted on this page with a revised effective date.',
-    ],
-  },
-  {
-    title: '12. Contact',
-    content: [
-      'If you have questions about this Privacy Policy or your personal data, contact us at contact@lowkey.luxury.',
-    ],
+    title: '6. Contact',
+    content: ['Business identity: Lowkey Luxury LLC (United States).', 'Privacy inquiries: contact@lowkey.luxury.'],
   },
 ];
 
@@ -96,11 +55,7 @@ export default function PrivacyPolicyPage() {
       <Reveal className="mx-auto max-w-4xl">
         <p className="eyebrow mb-4">Legal</p>
         <h1 className="font-serif text-4xl sm:text-6xl">Privacy Policy</h1>
-        <p className="mt-6 text-sm leading-7 text-white/60 sm:text-base">Effective Date: March 25, 2026</p>
-        <p className="mt-4 text-sm leading-7 text-white/60 sm:text-base">
-          Lowkey Luxury (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy and handling your
-          data with discretion and care.
-        </p>
+        <p className="mt-6 text-sm leading-7 text-white/60 sm:text-base">Effective Date: March 30, 2026</p>
       </Reveal>
 
       <div className="mx-auto mt-12 max-w-4xl space-y-8">
