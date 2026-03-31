@@ -1,118 +1,80 @@
 # Lowkey Luxury
 
-Lowkey Luxury is a Vite + React + TypeScript experience that combines:
-- a luxury-themed front-end,
-- an AI consultant chat powered by Gemini,
-- simple auth simulation,
-- service booking and payment UI flows.
+Lowkey Luxury is a Next.js 14 App Router website with an integrated Telegram bot webhook surface, Stripe checkout flow, and a Mini App storefront.
 
-This repository is now configured to deploy cleanly on **Railway** with minimal setup.
+## Runtime stack
 
-## 1) Deployment Readiness Checklist
+- Next.js App Router (Node.js runtime)
+- React 18 + TypeScript
+- Tailwind CSS + Framer Motion
+- API routes for health, Telegram webhook, Stripe checkout and Stripe webhook
 
-- ✅ Node engine pinned to `>=20`
-- ✅ Railway build and start commands defined (`railway.toml`)
-- ✅ Production start script binds to `0.0.0.0:$PORT`
-- ✅ Gemini client package switched to a supported SDK (`@google/generative-ai`)
-- ✅ Vite-safe environment variables (`import.meta.env.VITE_*`)
+## Entrypoints
 
-## 2) Quick Deploy on Railway
+- Web app: `/` and static marketing pages under `app/*`
+- Mini App storefront: `/miniapp`
+- Health check: `/api/health`
+- Telegram webhook: `/api/telegram/webhook`
+- Stripe session creation: `/api/stripe/create-checkout-session`
+- Stripe webhook: `/api/stripe/webhook`
+- Admin settings API: `/api/admin/settings`
 
-### Option A — One-click from GitHub
+## Required environment variables
 
-1. Push this repository to GitHub.
-2. In Railway: **New Project** → **Deploy from GitHub repo**.
-3. Select this repository.
-4. Add environment variable:
-   - `VITE_GEMINI_API_KEY=your_google_ai_studio_key`
-5. Deploy.
+```bash
+APP_URL=https://your-domain.com
+ADMIN_API_KEY=replace-with-long-random-secret
+TELEGRAM_BOT_TOKEN=...
+TELEGRAM_BOT_USERNAME=Lowkeyluxurybot
+TELEGRAM_WEBHOOK_SECRET_TOKEN=...
+STRIPE_SECRET_KEY=...
+STRIPE_WEBHOOK_SECRET=...
+```
 
-Railway will use:
-- `npm install --include=dev && npm run build` for build
-- `npm run start` for runtime
+Optional:
 
-(from `railway.toml`).
+```bash
+# If true, /api/health requires database availability.
+HEALTHCHECK_REQUIRE_DB=false
 
-### Option B — Manual Railway service settings
+# Dynamic product fallback catalog (JSON array)
+PRODUCT_CATALOG_JSON=[{"id":"vip-membership","name":"VIP Membership","description":"Access to premium systems","stripePriceId":"price_123","amountUsdCents":9900,"active":true}]
+```
 
-If you prefer to set commands in the Railway dashboard:
-- **Install Command:** `npm install --include=dev`
-- **Build Command:** `npm run build`
-- **Start Command:** `npm run start`
-
-## 3) Local Development
-
-### Prerequisites
-- Node.js 20+
-- npm 10+
-
-### Setup
+## Local development
 
 ```bash
 npm install
-cp .env.example .env.local
-```
-
-Then edit `.env.local`:
-
-```bash
-VITE_GEMINI_API_KEY=your_google_ai_studio_key
-```
-
-Run locally:
-
-```bash
 npm run dev
 ```
 
-Build check:
+## Production (Railway)
+
+`railway.toml` is configured to use Nixpacks and start with `npm run start`.
 
 ```bash
 npm run build
-npm run preview
+npm run start
 ```
 
-## 4) Environment Variables
+## Telegram setup
 
-| Variable | Required | Description |
-|---|---:|---|
-| `VITE_GEMINI_API_KEY` | Yes (for AI chat) | Google AI Studio API key used by the Gemini client in browser runtime. |
+1. Set all Telegram env vars.
+2. Deploy app so `APP_URL` is publicly reachable via HTTPS.
+3. Call `GET /api/telegram/webhook` once to register webhook.
+4. In BotFather, set Mini App / WebApp URL to `https://your-domain.com/miniapp`.
 
-> Important: This is a client-side Vite variable (`VITE_` prefix). Do not use server-only secret naming for front-end access.
+## Stripe setup
 
-## 5) Feature Integration Notes
+1. Create Stripe Prices in your Stripe account.
+2. Put those IDs in `PRODUCT_CATALOG_JSON` or update via admin API.
+3. Configure Stripe webhook endpoint:
+   - URL: `https://your-domain.com/api/stripe/webhook`
+   - Event: `checkout.session.completed`
+4. Use your Stripe signing secret in `STRIPE_WEBHOOK_SECRET`.
 
-### Gemini Chat
-- File: `services/geminiService.ts`
-- Uses `gemini-1.5-flash` with a system prompt tuned for executive consulting tone.
-- If `VITE_GEMINI_API_KEY` is missing, the app degrades gracefully and returns a configuration message instead of crashing.
+## Admin API
 
-### Auth / Booking / Payment Components
-- Current auth + booking + payment paths are UI and mock-workflow oriented.
-- Backend integration points are straightforward:
-  - Replace mock functions in `services/mockBackend.ts`
-  - Wire `AuthContext` methods to your real auth provider
-  - Attach `PaymentForm` to Stripe/Checkout service
+- `GET /api/admin/settings` with `Authorization: Bearer $ADMIN_API_KEY` returns product settings.
+- `PUT /api/admin/settings` with the same auth and `{ "products": [...] }` updates live in-memory product settings.
 
-## 6) Production Hardening (Recommended Next)
-
-If you want enterprise-grade production:
-1. Move Gemini calls behind a backend API (to avoid exposing API keys in browser code).
-2. Add request throttling and abuse prevention on AI endpoints.
-3. Add structured logging and monitoring (Sentry + Railway logs).
-4. Add tests:
-   - unit tests for service modules
-   - Playwright smoke test for `/` render and chat fallback state
-
-## 7) Project Scripts
-
-```bash
-npm run dev      # local dev server
-npm run build    # production build
-npm run start    # railway/prod preview server bound to PORT
-npm run preview  # local preview server
-```
-
----
-
-If you'd like, I can also add a minimal secure Node/Express API proxy in this repo so the Gemini key never touches the browser.
