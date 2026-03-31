@@ -1,5 +1,12 @@
 import { Reveal } from '@/components/ui/animated';
 
+/**
+ * Renders the About page with the founder profile and a three-item attribute panel.
+ *
+ * The page includes an eyebrow label and headline, four biographical paragraphs describing the founder's background and operating philosophy, and a three-column panel listing Identity, Method, and Promise.
+ *
+ * @returns A JSX element containing the composed About page layout
+ */
 export default function AboutPage() {
   return (
     <div className="shell py-20 sm:py-24">

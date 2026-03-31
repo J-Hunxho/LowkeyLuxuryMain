@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   description: 'Apply to work with Lowkey Luxury for business infrastructure and automation systems.',
 };
 
+/**
+ * Render the Contact page presenting a private application form and business contact details.
+ *
+ * The layout includes a left column with a headline, descriptive text, and business/contact info,
+ * and a right column containing an application form (name, email, company, scope) with a submit button.
+ *
+ * @returns The JSX element for the Contact page containing the consultation application UI.
+ */
 export default function ContactPage() {
   return (
     <div className="shell py-20 sm:py-24">

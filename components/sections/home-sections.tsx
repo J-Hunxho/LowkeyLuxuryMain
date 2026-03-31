@@ -52,6 +52,11 @@ const pricingTiers = [
   },
 ];
 
+/**
+ * Renders the home page sections: hero, metrics, authority/positioning, infrastructure installs, founder bio, pricing, and the private-engagement CTA.
+ *
+ * @returns The composed JSX element containing the landing page's sectioned layout and content cards.
+ */
 export function HomeSections() {
   return (
     <>

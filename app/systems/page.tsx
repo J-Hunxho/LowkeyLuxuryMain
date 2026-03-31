@@ -15,6 +15,11 @@ const systems = [
   },
 ];
 
+/**
+ * Render the Systems page showing installed systems and their layers as styled cards.
+ *
+ * @returns The React element for the page, including a header section and a list of system cards that display each system's name and its layers as tiles.
+ */
 export default function SystemsPage() {
   return (
     <div className="shell py-20 sm:py-24">

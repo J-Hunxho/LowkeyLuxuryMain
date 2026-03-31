@@ -21,6 +21,12 @@ const legalItems = [
   { href: '/contact', label: 'Contact' },
 ];
 
+/**
+ * Provides the site-level layout with responsive header, animated route transitions, mobile navigation, and footer.
+ *
+ * @param children - Page content rendered inside the animated main region
+ * @returns The composed site frame JSX containing header, navigation, animated page container, and footer
+ */
 export function SiteFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);

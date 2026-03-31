@@ -49,6 +49,11 @@ const policySections = [
   },
 ];
 
+/**
+ * Renders the Privacy Policy page with an eyebrow label, page title, effective date, and a list of policy sections.
+ *
+ * @returns The Privacy Policy page as a React element containing the header and mapped policy sections
+ */
 export default function PrivacyPolicyPage() {
   return (
     <div className="shell py-20 sm:py-24">

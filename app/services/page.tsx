@@ -23,6 +23,11 @@ const engagements = [
   },
 ];
 
+/**
+ * Render the Services page with a header and a grid of engagement cards showing scope and delivery details.
+ *
+ * @returns The JSX element for the Services page containing an intro section and a responsive grid of engagement panels.
+ */
 export default function ServicesPage() {
   return (
     <div className="shell py-20 sm:py-24">

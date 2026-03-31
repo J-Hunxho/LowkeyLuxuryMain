@@ -14,6 +14,13 @@ const items = [
   'If a billing error occurs, contact us within 7 days at contact@lowkey.luxury for review and correction.',
 ];
 
+/**
+ * Renders the Refund Policy page for Lowkey Luxury.
+ *
+ * Displays a header with "Legal", the "Refund Policy" title and effective date, then renders the listed refund statements with staggered reveal animations.
+ *
+ * @returns A React element representing the Refund Policy page.
+ */
 export default function RefundPolicyPage() {
   return (
     <div className="shell py-20 sm:py-24">

@@ -43,6 +43,11 @@ const terms = [
   },
 ];
 
+/**
+ * Renders the Terms of Service page for Lowkey Luxury, including a header with the effective date and a list of numbered term sections.
+ *
+ * @returns A React element representing the Terms of Service page layout and content.
+ */
 export default function TermsPage() {
   return (
     <div className="shell py-20 sm:py-24">
