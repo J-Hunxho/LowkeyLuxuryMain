@@ -8,12 +8,13 @@ const memory = {
 };
 
 /**
- * Indicates whether a database connection is not configured.
+ * Indicates whether the in-memory store is available.
  *
- * @returns `true` if no database URL is configured, `false` otherwise.
+ * @returns `true` always, since the app uses in-memory storage with no real database.
  */
 export async function pingDb(): Promise<boolean> {
-  return Boolean(config.databaseUrl) ? false : true;
+  // In-memory store is always available; return true to indicate healthy.
+  return true;
 }
 
 /**
