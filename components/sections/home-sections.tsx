@@ -241,7 +241,10 @@ export function HomeSections() {
               <p className="text-xs uppercase tracking-[0.14em] text-white/46">Tier {index + 1}</p>
               <p className="mt-4 font-serif text-2xl">{tier}</p>
               <p className="mt-4 text-lg text-gold-200">{amount}</p>
-      <section className="shell py-14 lg:py-24">
+            </Reveal>
+          ))}
+        </div>
+      </section>
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal>
             <p className="eyebrow mb-4">Authority positioning</p>
