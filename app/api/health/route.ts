@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { config, getMissingRequiredEnvVars } from '@/lib/config';
 import { pingDb } from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   const missingEnv = getMissingRequiredEnvVars();
   let dbOk = true;
