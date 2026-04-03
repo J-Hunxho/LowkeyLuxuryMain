@@ -10,6 +10,7 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Engagements' },
   { href: '/systems', label: 'Systems' },
+  { href: '/architecture', label: 'Architecture' },
   { href: '/about', label: 'Founder' },
   { href: '/contact', label: 'Apply' },
 ];
@@ -148,7 +149,7 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-white/5 py-10">
         <div className="shell grid gap-5 text-sm text-white/45 lg:grid-cols-[1.1fr_1fr_auto] lg:items-center">
           <div>
-            <p className="text-white/72">Lowkey Luxury LLC · U.S.-based infrastructure and automation studio.</p>
+            <p className="text-white/72">Lowkey Luxury LLC · U.S.-based business infrastructure management and automation studio.</p>
             <p className="mt-2 text-xs text-white/45">Founder: Jacob Young · Business model: consulting, implementation, and managed optimization retainers.</p>
           </div>
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
