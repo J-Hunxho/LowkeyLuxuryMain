@@ -1,17 +1,17 @@
 # Lowkey Luxury
 
-Lowkey Luxury is a Next.js 14 App Router website with an integrated Telegram bot webhook surface, Stripe checkout flow, and a Mini App storefront.
+Lowkey Luxury is a Next.js 14 App Router website with integrated Telegram webhook surfaces, Stripe checkout workflows, and a Mini App storefront.
 
 ## Runtime stack
 
 - Next.js App Router (Node.js runtime)
 - React 18 + TypeScript
 - Tailwind CSS + Framer Motion
-- API routes for health, Telegram webhook, Stripe checkout and Stripe webhook
+- API routes for health, Telegram webhook, Stripe checkout, and Stripe webhook
 
 ## Entrypoints
 
-- Web app: `/` and static marketing pages under `app/*`
+- Web app: `/` and static pages under `app/*`
 - Mini App storefront: `/miniapp`
 - Health check: `/api/health`
 - Telegram webhook: `/api/telegram/webhook`
@@ -34,10 +34,7 @@ STRIPE_WEBHOOK_SECRET=...
 Optional:
 
 ```bash
-# If true, /api/health requires database availability.
 HEALTHCHECK_REQUIRE_DB=false
-
-# Dynamic product fallback catalog (JSON array)
 PRODUCT_CATALOG_JSON=[{"id":"vip-membership","name":"VIP Membership","description":"Access to premium systems","stripePriceId":"price_123","amountUsdCents":9900,"active":true}]
 ```
 
@@ -48,14 +45,27 @@ npm install
 npm run dev
 ```
 
-## Production (Railway)
+## Railway deployment (effortless path)
 
-`railway.toml` is configured to use Nixpacks and start with `npm run start`.
+This repo is deployment-ready for Railway out of the box:
+
+- `railway.toml` defines build/start/health checks.
+- `scripts/railway-preflight.mjs` validates production env vars before build.
+- `.env.railway.example` is a copy-ready template.
+
+Quick path:
+
+1. Connect repo to Railway.
+2. Paste variables from `.env.railway.example` into Railway Variables.
+3. Deploy.
+
+The build command will auto-run:
 
 ```bash
-npm run build
-npm run start
+npm ci --include=dev && npm run railway:preflight && npm run build
 ```
+
+Detailed playbook: `docs/railway-deploy.md`.
 
 ## Telegram setup
 
@@ -77,4 +87,3 @@ npm run start
 
 - `GET /api/admin/settings` with `Authorization: Bearer $ADMIN_API_KEY` returns product settings.
 - `PUT /api/admin/settings` with the same auth and `{ "products": [...] }` updates live in-memory product settings.
-
