@@ -44,12 +44,8 @@ export const config = {
 };
 
 export const requiredEnvVars = [
-  'TELEGRAM_BOT_TOKEN',
-  'TELEGRAM_WEBHOOK_SECRET_TOKEN',
   'STRIPE_SECRET_KEY',
   'STRIPE_WEBHOOK_SECRET',
-  'APP_URL',
-  'ADMIN_API_KEY',
 ];
 
 /**
